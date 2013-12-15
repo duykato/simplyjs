@@ -5,7 +5,7 @@ simply.setText({
 });
 
 // a-z 0-9 _
-var cat_text = 'Positive Etropy Negative Enthalpy';
+var catText = 'Positive Etropy Negative Enthalpy';
 
 simply.on('singleClick', function(e) {
   if (e.button === 'select'){
@@ -15,7 +15,6 @@ simply.on('singleClick', function(e) {
   } else {
     simply.setText({ title: 'Goodbye'});
   }
-  
 });
 
 simply.begin();
