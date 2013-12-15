@@ -7,9 +7,14 @@ simply.setText({
 // a-z 0-9 _
 var catText = 'Positive Etropy Negative Enthalpy';
 
+var winLose = [
+  'Victory',
+  'Defeat',
+];
+
 simply.on('singleClick', function(e) {
   if (e.button === 'select'){
-    simply.setText({ title: 'Victory'});
+    simply.setText({ title: winLose[2]});
   } else if (e.button === 'up'){
     simply.setText({ subtitle; '15:1:1.5'});
   } else {
