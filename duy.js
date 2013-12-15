@@ -9,3 +9,5 @@ simply.on('singleClick', function(e) {
     simply.setText({title: 'Victory'});
   }
 });
+
+simply.begin();
