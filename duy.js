@@ -7,7 +7,10 @@ simply.setText({
 simply.on('singleClick', function(e) {
   if (e.button == 'select'){
     simply.setText({title: 'Victory'});
-  }
+  } else {
+    simply.setText( subtitle; '(^_^)')
+  } 
+  
 });
 
 simply.begin();
