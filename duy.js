@@ -2,10 +2,10 @@ simply.setText({
   title: 'Result?',
   subtitle: '30/2/3',
   body: 'Heimerdinger'
-});
+}, true);
 
 // a-z 0-9 _
-var catText = 'Positive Etropy Negative Enthalpy';
+var catText = 'Positive Entropy';
 
 var winLose = [
   'Victory',
@@ -14,16 +14,19 @@ var winLose = [
 
 //Math.floor (0.05 * 4) = 0
 
+var getRandomIndex = function() {
+  var winLoseIndex = Math.floor(Math.random() * winLose.length);
+};
 
+var winLoseIndex = 0;
 
 simply.on('singleClick', function(e) {
   if (e.button === 'select'){
-    var winLoseIndex = Math.floor(Math.random() * winLose.length);
-    simply.setText({ title: winLose[winLoseIndex] });
+    simply.setText({ title: winLose[getRandomIndex()] });
   } else if (e.button === 'up'){
-    simply.setText({ subtitle; '15:1:1.5'});
-  } else {
-    simply.setText({ title: catText});
+    winLoseIndex = winLoseIndex - 1;
+  } else if {e.button === 'down'
+    winLoseIndex = winLoseIndex + 1;
   }
 });
 
