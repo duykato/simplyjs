@@ -5,12 +5,17 @@ simply.setText({
 }, true);
 
 // a-z 0-9 _
-var catText = 'Positive Entropy';
-
 var winLose = [
-  'Victory',
-  'Defeat',
+  {title: 'Victory'}, // 0
+  {title: 'Defeat'},  // 1
+  [title: 'NORMAL', body: 'Stats aren\'t tracked for normal games.']
 ];
+
+simply.on('singleClick', function(e){
+  
+}
+
+
 
 //Math.floor (0.05 * 4) = 0
 
