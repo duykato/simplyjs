@@ -14,7 +14,7 @@ var winLose = [
 simply.on('singleClick', function(e){
   if (e.button === 'select')
   simply.setText ({title: winLose[1]})
-};
+});
 
 
 
