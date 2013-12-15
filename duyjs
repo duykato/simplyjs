@@ -1,4 +1,10 @@
 simply.setText({
-  title: '30/2/3',
-  subtitle: 'Cruel'
+  title: 'Victory',
+  subtitle: '30/2/3'
 }, true);
+
+simply.on('singleClick', function(event) {
+
+
+
+});
