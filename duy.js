@@ -5,11 +5,13 @@ simply.setText({
 }, true);
 
 simply.on('singleClick', function(e) {
-  if (e.button == 'select'){
+  if (e.button === 'select'){
     simply.setText({title: 'Victory'});
+  } else if (e.button === 'up'){
+    simply.setText({subtitle; '15:1:1.5'});
   } else {
-    simply.setText({subtitle; '(^_^)'})
-  } 
+    simply.setText ([title: 'Goodbye']);
+  }
   
 });
 
