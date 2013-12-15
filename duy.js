@@ -5,6 +5,6 @@ simply.setText({
 
 simply.on('singleClick', function(e) {
   if (e.button == 'select'){
-  simply.setText({body: 'Heimerdinger'}];
+    simply.setText({body: 'Heimerdinger'});
   }
 });
