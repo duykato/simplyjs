@@ -1,3 +1,4 @@
 simply.setText({
-  title: 'This is from GitHub.',
+  title: '30/2/3',
+  subtitle: 'Cruel'
 }, true);
