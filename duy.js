@@ -14,11 +14,12 @@ var winLose = [
 
 //Math.floor (0.05 * 4) = 0
 
-var winLoseIndex = Math.floor(Math.random() * winLose.length);
+
 
 simply.on('singleClick', function(e) {
   if (e.button === 'select'){
-    simply.setText({ title: winLose[winLoseIndex]});
+    var winLoseIndex = Math.floor(Math.random() * winLose.length);
+    simply.setText({ title: winLose[winLoseIndex] });
   } else if (e.button === 'up'){
     simply.setText({ subtitle; '15:1:1.5'});
   } else {
