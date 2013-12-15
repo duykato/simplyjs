@@ -13,7 +13,7 @@ simply.on('singleClick', function(e) {
   } else if (e.button === 'up'){
     simply.setText({ subtitle; '15:1:1.5'});
   } else {
-    simply.setText({ title: 'Goodbye'});
+    simply.setText({ title: catText});
   }
 });
 
