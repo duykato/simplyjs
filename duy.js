@@ -4,7 +4,7 @@ simply.setText({
   body: "Heimerdinger"
 });
 
-var winLose=[
+var winLose = [
   'Victory',
   'Defeat'
 ];
