@@ -11,7 +11,7 @@ var player = [
   'lifeisgood'
 ];
 
-var lolApi = 'https://prod.api.pvp.net/api/lol/na/v1.1/summoner/by-name/'+player[1]+'?api_key=1e0b2bdd-8bf5-43ba-8900-e7c606344517';
+var lolApi = 'https://prod.api.pvp.net/api/lol/na/v1.1/summoner/by-name/'+player[2]+'?api_key=1e0b2bdd-8bf5-43ba-8900-e7c606344517';
 
 
 
