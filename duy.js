@@ -6,11 +6,8 @@ var requestName = function() {
   });
 };
 
-simply.on('singleClick', function(e) {
-  if (e.button == 'select') {
-    requestName();
-  }
-});
+requestName();
+
 
 
 simply.begin();
