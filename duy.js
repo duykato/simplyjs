@@ -24,7 +24,7 @@ var requestName = function() {
 
 var requestSummonerLevel = function (){
     ajax({ url: lolApi, type: 'json' }, function(data) {
-    simply.setText({ subtitle: data.summonerLevel() });      
+    simply.setText({ subtitle: data.summonerLevel.toString() });      
   });
 }
 
