@@ -5,14 +5,14 @@ simply.setText({
 });
 
 var winLose [
-  {title: 'Victory'},
-  {title: 'Defeat'},
+  'Victory',
+  'Defeat',
 ];
 
 simply.on('singleClick', function(e){
   if (e.button == 'select'){
     simply.setText({
-      winLose[0];
+      title: winLose[1];
     });
   }
 });
