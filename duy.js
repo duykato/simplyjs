@@ -22,13 +22,13 @@ var requestName = function() {
 };
 
 
-var requestSummonerLevel = function (){
+var requestSummonerId = function (){
     ajax({ url: lolApi, type: 'json' }, function(data) {
     simply.setText({ subtitle: data.summonerLevel.toString() });      
   });
 }
 
 requestName();
-requestSummonerLevel();
+requestSummonerId();
 
 simply.begin();
