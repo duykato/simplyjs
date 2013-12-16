@@ -6,6 +6,10 @@ simply.setText({
 
 simply.on('singleClick', function(e){
   if (e.button == 'select'){
-    title: 'Victory';
+    simply.setText({
+      title: 'Victory';
+      )};
   }
-})
+});
+
+simply.begin();
