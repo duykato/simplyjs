@@ -1,3 +1,9 @@
+simply.setText({ 
+  title: 'Summoner Name',
+  subtitle: 'Level',
+  body: 'Win/Loss'
+});
+
 var players = [
   'DuyKato',
   'timolawl',
@@ -12,15 +18,13 @@ var lolApi = 'https://prod.api.pvp.net/api/lol/na/v1.1/summoner/by-name/duykato?
 var requestName = function() {
   ajax({ url: lolApi, type: 'json' }, function(data) {
     simply.setText({ title: data.name.toString() });
-
-    simply.settext({ body: 'Will this work?'})
   });
 };
 
 
 var requestSummonerLevel = function (){
     ajax({ url: lolApi, type: 'json' }, function(data) {
-    simply.settext({ subtitle: data.summonerLevel() });      
+    simply.setText({ subtitle: data.summonerLevel() });      
   });
 }
 requestName();
