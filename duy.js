@@ -5,7 +5,7 @@ simply.setText({
 });
 
 var winLose[
-  'Victory'
+  'Victory',
   'Defeat'
 ];
 
