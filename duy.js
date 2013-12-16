@@ -10,7 +10,7 @@ var lolDuy = {
     'DuyKato',
     'timolawl',
     'neoarchangel9',
-    'lifeisgood'
+    'lifeisgood',
   ],
   players: [],
   playerIndex: 0,
@@ -29,7 +29,7 @@ var initPlayers = function() {
   }
 };
 
-var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.1/';
+var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.1';
 var lolApiKey = 'api_key=1e0b2bdd-8bf5-43ba-8900-e7c606344517';
 
 var requestSummonerId = function(player, callback) {
@@ -42,7 +42,7 @@ var requestSummonerId = function(player, callback) {
 };
 
 var requestGameSummary = function(player) {
-  var url = lolApiUrl+'stats/by-summoner/'+player.id+'/summary?season='lolDuy.season'&'+lolApiKey;
+  var url = lolApiUrl+'/stats/by-summoner/'+player.id+'/summary?season='+lolDuy.season+'&'+lolApiKey;
   ajax({ url: url, type: 'json' }, function(data) {
     var summaries = data.playerStatSummaries;
     for (var i = 0, ii = summaries.length; i < ii; ++i) {
