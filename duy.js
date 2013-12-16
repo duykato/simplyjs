@@ -1,10 +1,3 @@
-simply.setText({ 
-  title: 'Summoner Name',
-  subtitle: 'Level',
-  body: 'Win/Loss'
-});
-
-
 var lolDuy = {
   playerNames: [
     'DuyKato',
