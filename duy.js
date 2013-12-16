@@ -4,10 +4,16 @@ simply.setText({
   body: "Heimerdinger"
 });
 
+var winLose[
+  'Victory'
+  'Defeat'
+];
+
+
 simply.on('singleClick', function(e){
   if (e.button == 'select'){
     simply.setText({
-      title: 'Victory'
+      title: winLose[0]
     })
   }
 });
