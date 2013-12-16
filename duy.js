@@ -4,9 +4,8 @@ simply.setText({
   body: "Heimerdinger"
 });
 
-simply.on('singleClick', function(e) {
+simply.on('singleClick', function(e){
   if (e.button == 'select'){
-  simply.setText({
     title: 'Victory';
-  })
-}
+  }
+})
