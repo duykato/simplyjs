@@ -27,7 +27,8 @@ var requestSummonerLevel = function (){
     simply.setText({ subtitle: data.summonerLevel() });      
   });
 }
-requestName();
 
+requestName();
+requestSummonerLevel();
 
 simply.begin();
