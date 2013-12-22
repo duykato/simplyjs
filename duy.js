@@ -1,7 +1,3 @@
-var simply = simply || {};
-var Pebble = Pebble || {};
-var ajax = ajax || {};
-
 var lolDuy = {
   playerNames: [
     'DuyKato',
