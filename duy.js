@@ -1,3 +1,5 @@
+/*global Pebble, ajax, simply*/
+
 var lolDuy = {
   playerNames: [
     'DuyKato',
