@@ -1,9 +1,14 @@
+var simply = simply || {};
+var Pebble = Pebble || {};
+var ajax = ajax || {};
+
 var lolDuy = {
   playerNames: [
     'DuyKato',
     'timolawl',
     'neoarchangel9',
     'lifeisgood',
+    'pr0j3kt',
   ],
   players: [],
   playerIndex: 0,
