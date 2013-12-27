@@ -14,6 +14,14 @@ var lolDuy = {
   season: 'SEASON3',
 };
 
+var gameInfo = {
+  games: [
+  'gameID'
+  ]
+  
+  
+};
+
 var initPlayers = function() {
   var playerNames = lolDuy.playerNames;
   for (var i = 0, ii = playerNames.length; i < ii; ++i) {
@@ -53,14 +61,14 @@ var requestGameSummary = function(player) {
   });
 };
 
-initPlayers();
+
 
 var showPlayerHistory = function(player) {
   var url =  lolApiUrl+'/game/by-summoner/'+player.id+'/recent?'+lolApiKey;
   ajax({ url: url, type: 'json'}, function(data) {
-		var history = data.games;
-    for (var i = 0, ii = history.length; i < ii; ++i) {
-			
+		var histories = data.games;
+    for (var i = 0, ii = histories.length; i < ii; ++i) {
+	
     }
     simply.setText({
       body: '\n' + 'Here is a new line.'
@@ -68,11 +76,11 @@ var showPlayerHistory = function(player) {
   });
 };
 
-
-
 var updatePlayer = function() {
   requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary);
 };
+
+initPlayers();
 
 var changePlayer = function(delta) {
   lolDuy.playerIndex += delta;
