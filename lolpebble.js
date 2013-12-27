@@ -25,7 +25,7 @@ var initPlayers = function() {
   }
 };
 
-var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.1';
+var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.2';
 var lolApiKey = 'api_key=1e0b2bdd-8bf5-43ba-8900-e7c606344517';
 
 var requestSummonerId = function(player, callback) {
@@ -42,7 +42,7 @@ var requestGameSummary = function(player) {
   ajax({ url: url, type: 'json' }, function(data) {
     var summaries = JSON.parse(data);
 
-    /*    
+/*    
     for (var i = 0, ii = summaries.length; i < ii; ++i) {
       var summary = summaries[i];
       if (summary.playerStatSummaryType === lolDuy.summaryType) {
@@ -51,7 +51,7 @@ var requestGameSummary = function(player) {
     }
 */    
     
-    simply.setText({ body: summaries.wins + ' / ' + summaries.losses });      
+    simply.setText({ body: summaries.playerStatSummaries[0].wins + ' / ' + summaries.playerStatSummaries[0].losses });      
   });
 };
 
