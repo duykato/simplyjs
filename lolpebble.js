@@ -1,4 +1,4 @@
-/*global Pebble, ajax, simply*/
+/*global ajax, simply*/
 
 var lolDuy = {
   playerNames: [
@@ -47,11 +47,25 @@ var requestGameSummary = function(player) {
         player.summary = summary;
       }
     }
-    simply.setText({ body: player.summary.wins + ' / ' + player.summary.losses });      
+    simply.setText({
+      body: 'W' + player.summary.wins + ' / ' + 'L' + player.summary.losses + '\n'
+    });      
   });
 };
 
 initPlayers();
+
+var showPlayerHistory = function(player) {
+  var url =  lolApiUrl+'/game/by-summoner/'+player.id+'/recent?'+lolApiKey;
+  ajax({ url: url, type: 'json'}, function(data) {
+		var history = data.games;
+    for (var i = 0, ii = history.length; i < ii; ++i) {
+			
+    }
+  });
+};
+
+
 
 var updatePlayer = function() {
   requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary);
@@ -73,6 +87,8 @@ simply.on('singleClick', function(e) {
   } else if (e.button === 'down') {
     changePlayer(1);
     updatePlayer();
+  } else if (e.button === 'select'){
+		showPlayerHistory();
   }
 });
 
