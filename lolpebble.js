@@ -41,17 +41,15 @@ var requestGameSummary = function(player) {
   var url = lolApiUrl+'/stats/by-summoner/'+player.id+'/summary?season='+lolDuy.season+'&'+lolApiKey;
   ajax({ url: url, type: 'json' }, function(data) {
     var summaries = JSON.parse(data);
-
-/*    
+   
     for (var i = 0, ii = summaries.length; i < ii; ++i) {
       var summary = summaries[i];
       if (summary.playerStatSummaryType === lolDuy.summaryType) {
         player.summary = summary;
       }
     }
-*/    
-    
-    simply.setText({ body: summaries.playerStatSummaries[0].wins + ' / ' + summaries.playerStatSummaries[0].losses });      
+
+    simply.setText({ body: summary.wins + ' / ' + summary.losses });      
   });
 };
 
