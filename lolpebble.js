@@ -1,4 +1,4 @@
-/*global Pebble, ajax, simply*/
+/*global ajax, simply*/
 
 var lolDuy = {
   playerNames: [
@@ -40,14 +40,18 @@ var requestSummonerId = function(player, callback) {
 var requestGameSummary = function(player) {
   var url = lolApiUrl+'/stats/by-summoner/'+player.id+'/summary?season='+lolDuy.season+'&'+lolApiKey;
   ajax({ url: url, type: 'json' }, function(data) {
-    var summaries = data.playerStatSummaries;
+    var summaries = JSON.parse(data);
+
+    /*    
     for (var i = 0, ii = summaries.length; i < ii; ++i) {
       var summary = summaries[i];
       if (summary.playerStatSummaryType === lolDuy.summaryType) {
         player.summary = summary;
       }
     }
-    simply.setText({ body: player.summary.wins + ' / ' + player.summary.losses });      
+*/    
+    
+    simply.setText({ body: summaries.wins + ' / ' + summaries.losses });      
   });
 };
 
@@ -73,7 +77,8 @@ simply.on('singleClick', function(e) {
   } else if (e.button === 'down') {
     changePlayer(1);
     updatePlayer();
-  }
+  } else if (e.button === 'select'){
+}
 });
 
 updatePlayer();
