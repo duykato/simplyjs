@@ -7,6 +7,7 @@ var lolDuy = {
     'neoarchangel9',
     'lifeisgood',
     'pr0j3kt',
+    'merei'
   ],
   players: [],
   playerIndex: 0,
