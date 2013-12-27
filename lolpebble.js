@@ -14,14 +14,6 @@ var lolDuy = {
   season: 'SEASON3',
 };
 
-var gameInfo = {
-  games: [
-  'gameID'
-  ]
-  
-  
-};
-
 var initPlayers = function() {
   var playerNames = lolDuy.playerNames;
   for (var i = 0, ii = playerNames.length; i < ii; ++i) {
@@ -61,8 +53,6 @@ var requestGameSummary = function(player) {
   });
 };
 
-
-
 var showPlayerHistory = function(player) {
   var url =  lolApiUrl+'/game/by-summoner/'+player.id+'/recent?'+lolApiKey;
   ajax({ url: url, type: 'json'}, function(data) {
@@ -70,9 +60,7 @@ var showPlayerHistory = function(player) {
     for (var i = 0, ii = histories.length; i < ii; ++i) {
 	
     }
-    simply.setText({
-      body: '\n' + 'Here is a new line.'
-    });
+  simply.setText({body: '\n' + 'Here is a new line.'});
   });
 };
 
@@ -105,7 +93,8 @@ simply.on('singleClick', function(e) {
 
 simply.on('longClick', function(e) {
   if (e.button === 'select'){
-    simply.text({}, true);
+    simply.text({
+    }, true);
   }
 });
 
