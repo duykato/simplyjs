@@ -64,7 +64,7 @@ var showPlayerHistory = function(player) {
     }
     simply.setText({
       body: '\n' + 'Here is a new line.'
-    };
+    });
   });
 };
 
