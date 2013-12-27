@@ -100,6 +100,12 @@ simply.on('singleClick', function(e) {
     updatePlayer();
   } else if (e.button === 'select'){
 		showPlayerHistory();
+  } 
+});
+
+simply.on('longClick', function(e) {
+  if (e.button === 'select'){
+    simply.text({}, true);
   }
 });
 
