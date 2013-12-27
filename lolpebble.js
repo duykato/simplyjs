@@ -40,7 +40,7 @@ var requestSummonerId = function(player, callback) {
 var requestGameSummary = function(player) {
   var url = lolApiUrl+'/stats/by-summoner/'+player.id+'/summary?season='+lolDuy.season+'&'+lolApiKey;
   ajax({ url: url, type: 'json' }, function(data) {
-    var summaries = JSON.parse(data);
+    var summaries = (data);
    
     for (var i = 0, ii = summaries.length; i < ii; ++i) {
       var summary = summaries[i];
