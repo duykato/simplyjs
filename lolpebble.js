@@ -48,7 +48,7 @@ var requestGameSummary = function(player) {
       }
     }
     simply.setText({
-      body: 'W' + player.summary.wins + ' / ' + 'L' + player.summary.losses + '\n' + 'Here is a new line. Yep.'
+      body: 'W' + player.summary.wins + ' / ' + 'L' + player.summary.losses + '\n'
     });      
   });
 };
@@ -62,6 +62,9 @@ var showPlayerHistory = function(player) {
     for (var i = 0, ii = history.length; i < ii; ++i) {
 			
     }
+    simply.setText({
+      body: '\n' + 'Here is a new line.'
+    };
   });
 };
 
