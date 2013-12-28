@@ -7,7 +7,6 @@ var lolDuy = {
     'neoarchangel9',
     'lifeisgood',
     'pr0j3kt',
-    'merei'
   ],
   players: [],
   playerIndex: 0,
@@ -66,7 +65,7 @@ var showPlayerHistory = function(player) {
 };
 
 var updatePlayer = function() {
-  requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary);
+  requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary, showPlayerHistory);
 };
 
 initPlayers();
