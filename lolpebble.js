@@ -92,10 +92,3 @@ var main = function() {
 };
 
 League.requestChampions(main);
-
-for (i = 0 ; i < 10 ; i++){
-    simply.text({
-        title: 'hello world.' + i
-    }, true);    
-}
-
