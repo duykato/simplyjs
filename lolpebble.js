@@ -58,7 +58,7 @@ var main = function() {
       } else if (game.subType == 'ARAM_UNRANKED_5x5'){
         gameType = 'All Random All Mid';
       }
-      var gameTime = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+'[\n]'+'h:mm:ss a');
+      var gameTime = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+' '+'h:mm:ss a');
       var champion = League.getChampion(game.championId).name;     
       var kills = 0, deaths = 0, assists = 0, winOrLose = 0;
       for (var j = 0; j < game.statistics.length; ++j) {
