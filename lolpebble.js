@@ -62,7 +62,7 @@ League.getChampion = function(championId) {
 };
 // Displays recent game history information.
 var main = function() {
-  ajax({ url: lolApiUrl + '/game/by-summoner/21148858/recent?' + lolApiKey, type: 'json' }, function(data) {
+  ajax({ url: lolApiUrl + '/game/by-summoner/20132258/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
     for (var i = 0; i < 1 ; ++i) {
       var game = games[i];
