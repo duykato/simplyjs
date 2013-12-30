@@ -1,4 +1,4 @@
-/*global http require*/
+/*global require*/
 
 // node glue code
 
