@@ -23,6 +23,20 @@ League.requestChampions = function(callback) {
   });
 };
 
+// Creates a map for all LOL Characters.
+League.makeChampionMap = function() {
+  var champions = League.Champions;
+  var map = {};
+  for (var i = 0; i < champions.length; ++i) {
+    var champion = champions[i];
+    map[champion.id] = champion;
+  }
+  League.ChampionsById = map;
+  return map;
+};
+
+
+
 simply.text({
     body: 'hello world.'
 });
