@@ -128,3 +128,25 @@ var main = function() {
 };
 
 League.requestChampions(main);
+var changePlayer = function(delta) {
+  lolDuy.playerIndex += delta;
+  if (lolDuy.playerIndex < 0) {
+    lolDuy.playerIndex = lolDuy.players.length - 1;
+  } else if (lolDuy.playerIndex >= lolDuy.players.length) {
+    lolDuy.playerIndex = 0;
+  } 
+};
+
+simply.on('singleClick', function(e) {
+  if (e.button === 'up') {
+    changePlayer(-1);
+    updatePlayer();
+  } else if (e.button === 'down') {
+    changePlayer(1);
+    updatePlayer();
+  }
+});
+
+updatePlayer();
+
+simply.begin();
