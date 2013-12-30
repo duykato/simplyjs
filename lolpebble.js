@@ -126,6 +126,9 @@ var main = function() {
     }
   });
 };
+var updatePlayer = function() {
+  requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary);
+};
 
 League.requestChampions(main);
 var changePlayer = function(delta) {
