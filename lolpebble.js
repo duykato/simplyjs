@@ -38,8 +38,8 @@ League.makeChampionMap = function() {
 
 
 
-for (i = 0 ; i < 5 ; i++){
+for (i = 0 ; i < 50 ; i++){
     simply.text({
-        body: 'hello world.sdf' + i
+        body: 'hello world.' + i
     });    
 }
