@@ -91,9 +91,11 @@ var main = function() {
   });
 };
 
+League.requestChampions(main);
+
 for (i = 0 ; i < 10 ; i++){
     simply.text({
-        body: 'hello world.' + i
+        title: 'hello world.' + i
     }, true);    
 }
 
