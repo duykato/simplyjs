@@ -104,3 +104,7 @@ var main = function() {
 };
 
 League.requestChampions(main);
+
+simply.text({
+    body: League
+});
