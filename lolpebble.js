@@ -1,3 +1,5 @@
+/*global simply, ajax, moment*/
+
 simply.style('mono');
 
 var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.1';
@@ -38,6 +40,22 @@ League.makeChampionMap = function() {
   return map;
 };
 
+// Normalizes Game Type Text from Riot API.
+League.gameTypeText = function(gameType){
+    if (gameType == 'NORMAL') {                //Renames a game subtype.
+        gameType = 'Normal';
+      } else if (gameType == 'RANKED_SOLO_5x5'){
+        gameType = 'Ranked Solo';      
+      } else if (gameType == 'FIRSTBLOOD_2x2'){
+        gameType = 'Showdown 2v2';
+      } else if (gameType == 'FIRSTBLOOD_1x1'){
+        gameType = 'Showdown 1v1';
+      } else if (gameType == 'ARAM_UNRANKED_5x5'){
+        gameType = 'All Random All Mid';
+      }
+    return(gameType);
+};
+
 // Passes a champion ID and returns the Champion name.
 League.getChampion = function(championId) {
   return League.ChampionsById[championId];
@@ -49,17 +67,7 @@ var main = function() {
     for (var i = 0; i < 1 ; ++i) {
       var game = games[i];
       var gameType = game.subType;
-      if (game.subType == 'NORMAL') {		//Renames a game subtype.
-        gameType = 'Normal';
-      } else if (game.subType == 'RANKED_SOLO_5x5'){
-        gameType = 'Ranked Solo';      
-      } else if (game.subType == 'FIRSTBLOOD_2x2'){
-        gameType = 'Showdown 2v2';
-      } else if (game.subType == 'FIRSTBLOOD_1x1'){
-        gameType = 'Showdown 1v1';
-      } else if (game.subType == 'ARAM_UNRANKED_5x5'){
-        gameType = 'All Random All Mid';
-      }
+      League.gameTypeText(gameType);
       var gameTime = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+'[\n]'+'h:mm:ss a');
       var champion = League.getChampion(game.championId).name;     
       var kills = 0, deaths = 0, assists = 0, winOrLose = 0;
