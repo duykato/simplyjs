@@ -66,7 +66,7 @@ var main = function() {
         if (stat.name == 'CHAMPIONS_KILLED') {
           kills = stat.value;
         }
-        if (stat.name == 'DEATHS') {
+        if (stat.name == 'NUM_DEATHS') {
           deaths = stat.value;
         }
         if (stat.name == 'ASSISTS') {
