@@ -40,8 +40,6 @@ League.getChampion = function(championId) {
   return League.ChampionsById[championId];
 };
 
-
-League.requestChampions(main);
 simply.text({
         title: 'hello'          
       });
