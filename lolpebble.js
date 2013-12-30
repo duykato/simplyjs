@@ -89,7 +89,6 @@ var main = function() {
       simply.text({
         title:      gameType,
         subtitle:   gameTime + '\n' + kda + '-' + winOrLose + '\n' + champion,
-
       });
     }
   });
