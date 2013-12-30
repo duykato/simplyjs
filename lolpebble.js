@@ -126,6 +126,9 @@ var main = function() {
     }
   });
 };
+
+initPlayers();
+
 var updatePlayer = function() {
   requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary);
 };
