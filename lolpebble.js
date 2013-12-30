@@ -87,8 +87,10 @@ var main = function() {
       }
       var kda = kills + '/' + deaths + '/' + assists;
       simply.text({
-        title:      gameType + '\n',
-        body:       gameTime + '\n' + '\n' + kda + '-' + '[' + winOrLose + ']' + '\n' + champion,
+        
+        title:      champion,
+        subtitle:   winOrLose + '[' + kda + ']',
+        body:       gameTime + '\n' + gameType,
       });
     }
   });
