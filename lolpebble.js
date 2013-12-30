@@ -35,11 +35,13 @@ League.makeChampionMap = function() {
   return map;
 };
 
+// Passes a champion ID and returns the Champion name.
+League.getChampion = function(championId) {
+  return League.ChampionsById[championId];
+};
 
-
-
-for (i = 0 ; i < 50 ; i++){
+for (i = 0 ; i < 4 ; i++){
     simply.text({
         body: 'hello world.' + i
-    });    
+    }, true);    
 }
