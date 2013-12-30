@@ -91,7 +91,7 @@ var main = function() {
   });
 };
 
-for (i = 0 ; i < 4 ; i++){
+for (i = 0 ; i < 10 ; i++){
     simply.text({
         body: 'hello world.' + i
     }, true);    
