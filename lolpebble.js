@@ -13,6 +13,16 @@ League.requestSummonerId = function(player, callback) {
   });
 };
 
+// Gets Characters from Riot API.
+League.requestChampions = function(callback) {
+  var url = lolApiUrl + '/champion'+'?' + lolApiKey;
+  ajax({ url: url, type: 'json' }, function(data) {
+    League.Champions = data.champions;
+    League.makeChampionMap();
+    if (callback) { callback(data); }
+  });
+};
+
 simply.text({
     body: 'hello world.'
 });
