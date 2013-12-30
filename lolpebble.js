@@ -1,4 +1,4 @@
-/*global require*/
+/*global http require*/
 
 // node glue code
 
@@ -89,8 +89,7 @@ var main = function() {
           if (lose == 1){
             winOrLose = 'Lose';
           } 
-        }        
-      
+        }              
       }
       var kda = kills + '/' + deaths + '/' + assists;
       simply.text({
