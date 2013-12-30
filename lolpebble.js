@@ -66,8 +66,7 @@ var main = function() {
     var games = data.games;
     for (var i = 0; i < 1 ; ++i) {
       var game = games[i];
-      var gameType = game.subType;
-      League.gameTypeText(gameType);
+      var gameType = League.gameTypeText(game.subType);
       var gameTime = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+'[\n]'+'h:mm:ss a');
       var champion = League.getChampion(game.championId).name;     
       var kills = 0, deaths = 0, assists = 0, winOrLose = 0;
