@@ -39,4 +39,4 @@ League.makeChampionMap = function() {
 
 simply.text({
     body: 'hello world.'
-});
+}, true);
