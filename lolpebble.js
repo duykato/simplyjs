@@ -1,3 +1,5 @@
+simply.style('mono');
+
 var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.1';
 var lolApiKey = 'api_key=1e0b2bdd-8bf5-43ba-8900-e7c606344517';
 
@@ -88,7 +90,7 @@ var main = function() {
       var kda = kills + '/' + deaths + '/' + assists;
       simply.text({
         title:      gameType,
-        body:   gameTime + '\n' + '\n' + kda + '-' + '[' + winOrLose + ']' + '\n' + '\n' + champion,
+        subtitle:       gameTime + '\n' + '\n' + kda + '-' + '[' + winOrLose + ']' + '\n' + '\n' + champion,
       });
     }
   });
