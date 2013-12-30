@@ -44,7 +44,7 @@ League.getChampion = function(championId) {
 var main = function() {
   ajax({ url: lolApiUrl + '/game/by-summoner/21148858/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
-    for (var i = 0; i < games.length ; ++i) {
+    for (var i = 0; i < 1 ; ++i) {
       var game = games[i];
       var gameType = game.subType;
       if (game.subType == 'NORMAL') {		//Renames a game subtype.
