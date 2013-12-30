@@ -40,12 +40,6 @@ League.getChampion = function(championId) {
   return League.ChampionsById[championId];
 };
 
-for (i = 0 ; i < 4 ; i++){
-    simply.text({
-        body: 'hello world.' + i
-    }, true);    
-}
-
 // Displays recent game history information.
 var main = function() {
   ajax({ url: lolApiUrl + '/game/by-summoner/21148858/recent?' + lolApiKey, type: 'json' }, function(data) {
@@ -96,3 +90,10 @@ var main = function() {
     }
   });
 };
+
+for (i = 0 ; i < 4 ; i++){
+    simply.text({
+        body: 'hello world.' + i
+    }, true);    
+}
+
