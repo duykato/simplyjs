@@ -1,33 +1,15 @@
+/* global require */
+
+var moment = require('moment'),
+    ajax = require('./ajax.node.js'),
+		simply = require('./simply.node.js');
+
 var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.1';
 var lolApiKey = 'api_key=1e0b2bdd-8bf5-43ba-8900-e7c606344517';
 
-var lolDuy = {
-  playerNames: [
-    'DuyKato',
-    'timolawl',
-    'neoarchangel9',
-    'lifeisgood',
-    'pr0j3kt',
-  ],
-  players: [],
-  playerIndex: 0,
-  summaryType: 'RankedSolo5x5',
-  season: 'SEASON3',
-};
-
-var initPlayers = function() {
-  var playerNames = lolDuy.playerNames;
-  for (var i = 0, ii = playerNames.length; i < ii; ++i) {
-    lolDuy.players[i] = {
-      name: playerNames[i],
-      id: '',
-      summary: { losses: 0, wins: 0 },
-    };
-  }
-};
-
 var League = {};
 
+// Gets Player ID from Riot API.
 League.requestSummonerId = function(player, callback) {
   simply.text({ title: player.name }, true);
   var url = lolApiUrl+'/summoner/by-name/'+player.name+'?'+lolApiKey;
@@ -37,20 +19,7 @@ League.requestSummonerId = function(player, callback) {
   });
 };
 
-var requestGameSummary = function(player) {
-  var url = lolApiUrl+'/stats/by-summoner/'+player.id+'/summary?season='+lolDuy.season+'&'+lolApiKey;
-  ajax({ url: url, type: 'json' }, function(data) {
-    var summaries = data.playerStatSummaries;
-    for (var i = 0, ii = summaries.length; i < ii; ++i) {
-      var summary = summaries[i];
-      if (summary.playerStatSummaryType === lolDuy.summaryType) {
-        player.summary = summary;
-      }
-    }
-    simply.setText({ body: player.summary.wins + ' / ' + player.summary.losses });      
-  });
-};
-
+// Gets Characters from Riot API.
 League.requestChampions = function(callback) {
   var url = lolApiUrl + '/champion'+'?' + lolApiKey;
   ajax({ url: url, type: 'json' }, function(data) {
@@ -60,6 +29,7 @@ League.requestChampions = function(callback) {
   });
 };
 
+// Creates a map for all LOL Characters.
 League.makeChampionMap = function() {
   var champions = League.Champions;
   var map = {};
@@ -71,18 +41,19 @@ League.makeChampionMap = function() {
   return map;
 };
 
+// Passes a champion ID and returns the Champion name.
 League.getChampion = function(championId) {
   return League.ChampionsById[championId];
 };
 
+// Displays recent game history information.
 var main = function() {
   ajax({ url: lolApiUrl + '/game/by-summoner/21148858/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
-//  for (var i = 0; i < games.length; ++i) {    
     for (var i = 0; i < games.length ; ++i) {
       var game = games[i];
       var gameType = game.subType;
-      if (game.subType == 'NORMAL'){
+      if (game.subType == 'NORMAL') {		//Renames a game subtype.
         gameType = 'Normal';
       } else if (game.subType == 'RANKED_SOLO_5x5'){
         gameType = 'Ranked Solo';      
@@ -127,32 +98,4 @@ var main = function() {
   });
 };
 
-initPlayers();
-
-var updatePlayer = function() {
-  requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary);
-};
-
 League.requestChampions(main);
-var changePlayer = function(delta) {
-  lolDuy.playerIndex += delta;
-  if (lolDuy.playerIndex < 0) {
-    lolDuy.playerIndex = lolDuy.players.length - 1;
-  } else if (lolDuy.playerIndex >= lolDuy.players.length) {
-    lolDuy.playerIndex = 0;
-  } 
-};
-
-simply.on('singleClick', function(e) {
-  if (e.button === 'up') {
-    changePlayer(-1);
-    updatePlayer();
-  } else if (e.button === 'down') {
-    changePlayer(1);
-    updatePlayer();
-  }
-});
-
-updatePlayer();
-
-simply.begin();
