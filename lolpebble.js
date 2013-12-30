@@ -50,6 +50,8 @@ var main = function() {
         gameType = 'Normal';
       } else if (game.subType == 'RANKED_SOLO_5x5'){
         gameType = 'Ranked Solo';      
+      } else if (game.subType == 'FIRSTBLOOD_2x2'){
+        gameType = 'Showdown 2v2';
       } else if (game.subType == 'FIRSTBLOOD_1x1'){
         gameType = 'Showdown 1v1';
       } else if (game.subType == 'ARAM_UNRANKED_5x5'){
