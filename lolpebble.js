@@ -64,7 +64,7 @@ League.getChampion = function(championId) {
 var main = function() {
   ajax({ url: lolApiUrl + '/game/by-summoner/20132258/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
-    for (var i = 0; i < 1 ; ++i) {
+    for (var i = 0; i < games.length ; ++i) {
       var game = games[i];
       var gameType = League.gameTypeText(game.subType);
       var gameTime = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+'[\n]'+'h:mm:ss a');
