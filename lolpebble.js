@@ -217,6 +217,3 @@ var main = function() {
     League.updateRecentGame();
   });
 };
-
-League.requestChampions(main);
-
