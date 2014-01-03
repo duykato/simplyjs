@@ -2,8 +2,7 @@
 simply.style('mono');
 var League = [];
 
-// Object contains all player information along with a selection of names
-// for scrolling through. Creates an array for player information to be stored.
+// Object contains all player information along with a selection of names for scrolling through.
 League.playerInfo = {
     playerNames: [
         'duykato',
@@ -12,7 +11,7 @@ League.playerInfo = {
         'neoarchangel9',
         'timolawl'
     ],
-    players: [],
+    players: [], // This is where all the player info will be stored. REMEMBER THIS SHIT. NO SERIOSLY REMEMBER IT.
     playerIndex: 0,
     summaryType: 'RankedSolo5x5',
     season: 'Season3'
