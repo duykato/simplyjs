@@ -6,7 +6,7 @@ var lolApiUrl = 'https://prod.api.pvp.net/api/lol/na/v1.1';
 var lolApiKey = 'api_key=1e0b2bdd-8bf5-43ba-8900-e7c606344517';
 
 var League = {};
-
+League.recentGameIndex = 0;
 
 // Gets Player ID from Riot API.
 League.requestSummonerId = function(player, callback) {
@@ -62,12 +62,33 @@ League.getChampion = function(championId) {
 };
 // Displays recent game history information.
 
-League.showRecentGame = function(index) {
-  var recentGame = League.recentGames[index];
+League.showRecentGame = function(recentGame) {
   simply.text({
     title: recentGame.type + '\n' + '\n',
     subtitle: recentGame.time + '\n' + '\n' + recentGame.kda + '-' + '[' + recentGame.winOrLose + ']' + '\n' + recentGame.champion,
   });
+};
+
+League.updateRecentGame = function() {
+  League.showRecentGame(League.recentGames[League.recentGameIndex]);
+};
+
+League.changeRecentGame = function(delta) {
+  var n = League.recentGames.length;
+  League.recentGameIndex = (League.recentGameIndex + delta + n) % n;
+ 
+};
+
+League.bindRecentGames = function(){
+    simply.on('singleClick', function(e) {
+      if (e.button === 'up') {
+        League.changeRecentGame(-1);
+        League.updateRecentGame();
+      } else if (e.button === 'down') {
+        League.changeRecentGame(1);
+        League.updateRecentGame();
+      }
+    });
 };
 
 var main = function() {
@@ -111,7 +132,8 @@ var main = function() {
       recentGames[i] = recentGame;
     }
     League.recentGames = recentGames;
-    League.showRecentGame(2);
+    League.bindRecentGames();
+    League.updateRecentGame();
   });
 };
 
