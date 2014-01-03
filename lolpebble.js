@@ -61,15 +61,26 @@ League.getChampion = function(championId) {
   return League.ChampionsById[championId];
 };
 // Displays recent game history information.
+
+League.showRecentGame = function(index) {
+  var recentGame = League.recentGames[index];
+  simply.text({
+    title: recentGame.type + '\n' + '\n',
+    subtitle: recentGame.time + '\n' + '\n' + recentGame.kda + '-' + '[' + recentGame.winOrLose + ']' + '\n' + recentGame.champion,
+  });
+};
+
 var main = function() {
   ajax({ url: lolApiUrl + '/game/by-summoner/20132258/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
+    var recentGames = [];
     for (var i = 0; i < games.length ; ++i) {
       var game = games[i];
-      var recentGame[i].gameType = League.gameTypeText(game.subType);
-      var recentGame[i].gameTime = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+'[\n]'+'h:mm:ss a');
-      var recentGame[i].champion = League.getChampion(game.championdI).name;
-      var kills = 0, deaths = 0, assists = 0, winOrLose = 0;
+      var recentGame = {};
+      recentGame.type = League.gameTypeText(game.subType);
+      recentGame.time = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+'[\n]'+'h:mm:ss a');
+      recentGame.champion = League.getChampion(game.championdI).name;
+      var kills = 0, deaths = 0, assists = 0, winOrLose = 'NA';
       for (var j = 0; j < game.statistics.length; ++j) {
         var stat = game.statistics[j];
         if (stat.name == 'CHAMPIONS_KILLED') {
@@ -92,30 +103,16 @@ var main = function() {
           if (lose == 1){
             winOrLose = 'Lose';
           }
+          
         }
       }
-      var recentGame[i].kda = kills + '/' + deaths + '/' + assists;
-      
+      recentGame.kda = kills + '/' + deaths + '/' + assists;
+      recentGame.winOrLose = winOrLose;
+      recentGames[i] = recentGame;
     }
+    League.recentGames = recentGames;
+    League.showRecentGame(0);
   });
 };
 
 League.requestChampions(main);
-
-simply.text({
-    title: gameType + '\n' + '\n',
-    subtitle: gameTime + '\n' + '\n' + kda + '-' + '[' + winOrLose + ']' + '\n' + champion,
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
