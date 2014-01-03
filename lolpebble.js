@@ -60,6 +60,7 @@ var changePlayer = function(delta) {
         playerObject.playerIndex = 0;
     }
 };
+
 // Gets Season Total Win and Loss record for player.
 var requestGameSummary = function(player) {
   var url = lolApiUrl+'/stats/by-summoner/'+player.id+'/summary?season='+playerObject.season+'&'+lolApiKey;
