@@ -1,3 +1,5 @@
+/* global simply*/
+
 var League = [];
 
 
@@ -17,4 +19,6 @@ League.playerInfo = {
     season: 'Season3'
 };
 
-console.log("logging work?");
+simply.text({
+    body: League.playerInfo
+});
