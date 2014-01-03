@@ -154,6 +154,7 @@ League.changeRecentGame = function(delta) {
 };
 
 // Sets Pebble Controls to scroll up and down through Players and Recent Games.
+/* 
 League.bindRecentGames = function(){
     simply.on('singleClick', function(e) {
       if (e.button === 'up' && viewMode === 0){
@@ -169,8 +170,39 @@ League.bindRecentGames = function(){
         League.changeRecentGame(1);
         League.updateRecentGame();
       } else if (e.button === 'select'){
-        changeViewMode(1);  
+        changeViewMode(+1);  
       }
+    });
+};
+*/
+
+League.onUpdatePlayerClick = function() {
+    if(viewMode === 0) {
+        simply.on('singleClick', function(e){
+            if (e.button === "up"){
+                changePlayer(-1);
+                updatePlayer();
+            } else if (e.button === "down") {
+                changePlayer(+1);
+                updatePlayer();
+            }
+        });
+    }
+    if (viewMode === 1) {
+        simply.on('singleClick', function(e){
+            if (e.button === "up") {
+                League.changeRecentGame(-1);
+                League.updateRecentGame();
+            } else if (e.button === "down") {
+                League.changeRecentGame(1);
+                League.updateRecentGame();
+            }   
+        });
+    }
+    simply.on('singleClick', function(e) {
+        if (e.button === "select"){
+            changeViewMode(+1);
+        }
     });
 };
 
@@ -215,7 +247,7 @@ League.requestRecentGames = function() {
       recentGames[i] = recentGame;
     }
     League.recentGames = recentGames;
-    League.bindRecentGames();
+    League.onUpdatePlayerClick();
     League.updateRecentGame();
   });
 };
