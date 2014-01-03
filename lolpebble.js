@@ -87,6 +87,10 @@ var updatePlayer = function(){
     League.requestSummonerId(playerObject.players[playerObject.playerIndex], requestGameSummary);
 };
 
+League.getCurrentPlayer = function() { 
+    return playerObject.players[playerObject.playerIndex]; 
+};
+
 // Gets Characters from Riot API.
 League.requestChampions = function(callback) {
   var url = lolApiUrl + '/champion'+'?' + lolApiKey;
@@ -170,7 +174,7 @@ League.bindRecentGames = function(){
 
 // Retrieves last 10 matches from Riot API and loads it into an object named "recentGame".
 var main = function() {
-  ajax({ url: lolApiUrl + '/game/by-summoner/' + playerObject.players[0].id + '/recent?' + lolApiKey, type: 'json' }, function(data) {
+  ajax({ url: lolApiUrl + '/game/by-summoner/' + League.getCurrentPlayer + '/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
     var recentGames = [];
     for (var i = 0; i < games.length ; ++i) {
