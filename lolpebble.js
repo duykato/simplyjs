@@ -20,5 +20,5 @@ League.playerInfo = {
 };
 
 simply.setText({
-    body: League.playerInfo[1]
+    body: League.playerInfo.playerNames
 });
