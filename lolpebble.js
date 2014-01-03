@@ -84,9 +84,9 @@ League.requestGameSummary = function(player) {
 
 // Refreshes Player Info
 var updatePlayer = function(){
-    League.requestSummonerId(playerObject.players[0], function() {
-  League.requestChampions(League.requestRecentGames);
-});
+  League.requestSummonerId(playerObject.players[0], function() {
+    League.requestChampions(League.requestGameSummary);
+  });
 };
 
 League.getCurrentPlayer = function() { 
