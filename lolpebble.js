@@ -79,7 +79,7 @@ var main = function() {
       var recentGame = {};
       recentGame.type = League.gameTypeText(game.subType);
       recentGame.time = moment(game.createDate).zone("-08:00").format('MM'+'/'+'DD'+'/'+'YY'+'[\n]'+'h:mm:ss a');
-      recentGame.champion = League.getChampion(game.championdI).name;
+      recentGame.champion = League.getChampion(game.championId).name;
       var kills = 0, deaths = 0, assists = 0, winOrLose = 'NA';
       for (var j = 0; j < game.statistics.length; ++j) {
         var stat = game.statistics[j];
