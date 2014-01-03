@@ -36,6 +36,7 @@ var initPlayers = function() {
     for (var i = 0, ii = playerNames.length; i < ii; ++i){
         playerObject.players[i] = {
             id: '',
+            name: playerNames[i],
             summary: { losses: 0, wins: 0 }    
         };
     }
