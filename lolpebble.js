@@ -47,14 +47,30 @@ var requestGameSummary = function(player) {
         player.summary = summary;
       }
     }
-    simply.setText({ body: player.summary.wins + ' / ' + player.summary.losses });
+    simply.setText({ subtitle: player.summary.wins + ' / ' + player.summary.losses });
   });
+};
+
+var requestSummonerTier = function(player) {
+  var url = lolApiUrl+'/league/by-summoner/'+player.id+'&'+lolApiKey;
+  ajax({ url: url, type: 'json'}, function(data) {
+    var tier = data.player.tier;
+    for (var l = 0, ll = player.entries.length; l < ll; ++l) {
+      var entries = entries[l];
+      if (entries.player === tier){
+        entries.player = player;
+      }
+    }
+    var rank = data.player.rank;
+    simply.setText({ body: tier  + rank });
+  });
+  
 };
 
 initPlayers();
 
 var updatePlayer = function() {
-  requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary);
+  requestSummonerId(lolDuy.players[lolDuy.playerIndex], requestGameSummary, requestSummonerTier);
 };
 
 var changePlayer = function(delta) {
