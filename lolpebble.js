@@ -42,6 +42,9 @@ simply.on('singleClick', function(e) {
 
 for(var i = 0 ; i < League.playerInfo.playerNames.length ; ++i) {
     simply.setText({
+        body: '\n' + '\n'
+    });
+    simply.setText({
         body: League.playerInfo.playerNames[i] + '\n' + '\n'
     });
 }
