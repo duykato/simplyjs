@@ -1,5 +1,5 @@
 /* global simply*/
-
+simply.style('mono');
 var League = [];
 
 // Object contains all player information along with a selection of names
