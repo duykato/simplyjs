@@ -17,4 +17,4 @@ League.playerInfo = {
     season: 'Season3'
 };
 
-console.log();
+console.log(League.playerInfo);
