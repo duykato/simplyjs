@@ -64,7 +64,6 @@ var requestSummonerTier = function(player) {
     var rank = data.player.rank;
     simply.setText({ body: tier  + rank });
   });
-  
 };
 
 initPlayers();
