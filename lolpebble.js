@@ -41,15 +41,21 @@ var initPlayers = function() {
     }
 };
 
+initPlayers();
+
 // Gets Player ID from Riot API.
 League.requestSummonerId = function(player, callback) {
   simply.text({ title: player.name }, true);
-  var url = lolApiUrl+'/summoner/by-name/'+player.name+'?'+lolApiKey;
+  var url = lolApiUrl+'/summoner/by-name/'+ player.name + '?' + lolApiKey;
   ajax({ url: url, type: 'json' }, function(data) {
     player.id = data.id;
     if (callback) { callback(player); }
   });
 };
+
+League.requestSummonerId(playerObject.players[0], function() {
+  League.requestChampions(main);
+});
 
 // Changes player using an index.
 var changePlayer = function(delta) {
@@ -72,7 +78,6 @@ var requestGameSummary = function(player) {
             player.summary = summary;
         }
     }
-    
   });
 };
 
@@ -209,4 +214,4 @@ var main = function() {
 };
 
 League.requestChampions(main);
-initPlayers();
+
