@@ -55,7 +55,7 @@ League.requestSummonerId = function(player, callback) {
 };
 
 League.requestSummonerId(playerObject.players[0], function() {
-  League.requestChampions(main);
+  League.requestChampions(League.requestRecentGames);
 });
 
 // Changes player using an index.
@@ -173,7 +173,7 @@ League.bindRecentGames = function(){
 };
 
 // Retrieves last 10 matches from Riot API and loads it into an object named "recentGame".
-var main = function() {
+League.requestRecentGames = function() {
   ajax({ url: lolApiUrl + '/game/by-summoner/' + League.getCurrentPlayer().id + '/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
     var recentGames = [];
