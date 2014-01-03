@@ -111,7 +111,7 @@ var main = function() {
       recentGames[i] = recentGame;
     }
     League.recentGames = recentGames;
-    League.showRecentGame(0);
+    League.showRecentGame(2);
   });
 };
 
