@@ -19,6 +19,6 @@ League.playerInfo = {
     season: 'Season3'
 };
 
-simply.text({
+simply.setText({
     body: League.playerInfo
 });
