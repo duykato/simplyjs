@@ -92,7 +92,7 @@ League.bindRecentGames = function(){
 };
 
 var main = function() {
-  ajax({ url: lolApiUrl + '/game/by-summoner/20132258/recent?' + lolApiKey, type: 'json' }, function(data) {
+  ajax({ url: lolApiUrl + '/game/by-summoner/21011088/recent?' + lolApiKey, type: 'json' }, function(data) {
     var games = data.games;
     var recentGames = [];
     for (var i = 0; i < games.length ; ++i) {
