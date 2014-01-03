@@ -69,7 +69,7 @@ var changePlayer = function(delta) {
 };
 
 // Gets Season Total Win and Loss record for player.
-var requestGameSummary = function(player) {
+League.requestGameSummary = function(player) {
   var url = lolApiUrl+'/stats/by-summoner/'+player.id+'/summary?season='+playerObject.season+'&'+lolApiKey;
   ajax({ url: url, type: 'json'}, function(data){
     var summaries = data.playerStatSummaries;
@@ -84,7 +84,9 @@ var requestGameSummary = function(player) {
 
 // Refreshes Player Info
 var updatePlayer = function(){
-    League.requestSummonerId(playerObject.players[playerObject.playerIndex], requestGameSummary);
+    League.requestSummonerId(playerObject.players[0], function() {
+  League.requestChampions(League.requestRecentGames);
+});
 };
 
 League.getCurrentPlayer = function() { 
@@ -217,3 +219,4 @@ League.requestRecentGames = function() {
     League.updateRecentGame();
   });
 };
+updatePlayer();
